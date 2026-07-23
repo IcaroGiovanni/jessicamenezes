@@ -641,41 +641,72 @@ button {
   max-width: 440px;
   display: flex;
   align-items: stretch;
-  gap: 0;
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(92, 88, 53, 0.1);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
+  padding: 6px;
   overflow: hidden;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.hero-credentials:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
 }
 
 .hero-credentials-year {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2px;
-  padding: 14px 16px;
-  background: linear-gradient(160deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  gap: 3px;
+  padding: 14px 14px;
+  background: linear-gradient(155deg, var(--color-accent) 0%, var(--color-primary) 115%);
   color: var(--color-white);
-  min-width: 72px;
+  min-width: 78px;
   flex-shrink: 0;
+  border-radius: calc(var(--radius-lg) - 6px);
+  box-shadow: 0 8px 18px -4px rgba(var(--color-primary-rgb), 0.35);
+  overflow: hidden;
+}
+
+.hero-credentials-year::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 25% 15%, rgba(255, 255, 255, 0.35), transparent 55%);
+  pointer-events: none;
+}
+
+.hero-credentials-year::after {
+  content: "★";
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.55);
 }
 
 .year-label {
+  position: relative;
   font-family: var(--font-heading);
-  font-size: 0.62rem;
-  font-weight: 600;
+  font-size: 0.6rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  opacity: 0.85;
+  letter-spacing: 1.2px;
+  opacity: 0.92;
 }
 
 .year-value {
+  position: relative;
   font-family: var(--font-heading);
-  font-size: 1.35rem;
+  font-size: 1.5rem;
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.5px;
@@ -1855,8 +1886,8 @@ button {
 
 .reviews-cinema__quotes {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
   gap: 1px;
   background: rgba(255, 255, 255, 0.13);
 }
@@ -1984,6 +2015,15 @@ button {
   font-weight: 800;
 }
 
+.reviews-cinema__more {
+  margin-top: 28px;
+}
+
+.reviews-cinema__more .btn {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: var(--color-primary);
+}
+
 @keyframes cinemaSpotlight {
   from { transform: translateX(-15px) rotate(-28deg); opacity: 0.18; }
   to { transform: translateX(70px) rotate(-21deg); opacity: 0.44; }
@@ -2001,6 +2041,7 @@ button {
 
   .reviews-cinema__quotes {
     min-height: 430px;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
