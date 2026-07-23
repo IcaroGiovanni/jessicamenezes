@@ -4,7 +4,7 @@
  */
 
 // Configuration
-const WHATSAPP_NUMBER = "553584123819"; // Official nutritionist WhatsApp number
+const WHATSAPP_NUMBER = "5535984123819"; // WhatsApp comercial exibido no site
 
 document.addEventListener("DOMContentLoaded", () => {
   // Initialize all modules
@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initFAQAccordion();
   initRippleEffect();
   initStickyButtons();
-  initBookingModal();
   initConveniosEffects();
 });
 
