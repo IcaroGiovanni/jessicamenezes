@@ -104,8 +104,8 @@ button {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: clamp(16px, 5vw, 24px);
+  padding-right: clamp(16px, 5vw, 24px);
 }
 
 .grid-2 {
@@ -507,7 +507,10 @@ button {
   padding-top: calc(var(--header-height) + 40px);
   padding-bottom: 60px;
   overflow: hidden;
-  background-color: var(--color-bg-light);
+  background:
+    radial-gradient(circle at 85% 8%, rgba(232, 160, 107, 0.16) 0%, transparent 55%),
+    radial-gradient(circle at 10% 90%, rgba(92, 88, 53, 0.10) 0%, transparent 50%),
+    var(--color-bg-light);
 }
 
 /* Organic Background Blobs */
@@ -737,10 +740,15 @@ button {
 
 .hero-title {
   font-family: var(--font-heading);
-  font-size: 2.85rem;
+  font-size: clamp(2rem, 3.6vw, 2.95rem);
   font-weight: 800;
+  background: linear-gradient(115deg, var(--color-primary) 25%, var(--color-accent-dark) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   color: var(--color-primary);
   line-height: 1.2;
+  letter-spacing: -0.5px;
   margin-bottom: 20px;
 }
 
@@ -754,6 +762,7 @@ button {
 .hero-actions {
   display: flex;
   gap: 16px;
+  flex-wrap: wrap;
 }
 
 .icon-arrow {
@@ -3276,9 +3285,61 @@ button {
   .hero-title {
     font-size: 1.85rem;
   }
-  
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
   .section-title {
     font-size: 1.75rem;
+  }
+
+  .hero-section {
+    padding-top: calc(var(--header-height) + 16px);
+    padding-bottom: 40px;
+  }
+
+  .image-wrapper {
+    max-width: 250px;
+  }
+
+  .hero-credentials {
+    max-width: 250px;
+    flex-direction: column;
+  }
+
+  .hero-credentials-year {
+    flex-direction: row;
+    gap: 6px;
+    padding: 8px 14px;
+  }
+
+  .floating-badge {
+    padding: 7px 12px;
+  }
+
+  .floating-badge .badge-text {
+    font-size: 0.72rem;
+  }
+
+  .floating-badge.badge-1 {
+    top: 4%;
+    left: -4%;
+  }
+
+  .floating-badge.badge-2 {
+    bottom: 6%;
+    right: -4%;
+  }
+
+  .section-padding {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .btn {
+    padding: 13px 22px;
+    font-size: 0.95rem;
   }
 
   .carousel-control {
